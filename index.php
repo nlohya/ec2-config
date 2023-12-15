@@ -3,7 +3,7 @@
 <?php
 
 try {
-    $conn = new PDO("mysql:host=terraform-20231215100811342300000002.cjd61w5im1sh.eu-north-1.rds.amazonaws.com;dbname=terrdb", "db_aws_user", "4lNVZCWo7fD8RKq8ITognZBFSqaxNU4DdytlYP7W");
+    $conn = new PDO("mysql:host=" . getenv("DB_HOST") . ";dbname=terrdb", getenv("DB_USER"), getenv("DB_PASS"));
     var_dump($conn);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }

@@ -14,7 +14,7 @@ if (isset($_GET["name"])) {
     $conn->prepare($sql)->execute([$_GET["name"]]);
 }
 
-$conn->query("CREATE TABLE utilisateurs (nom VARCHAR(50))")->execute();
+$conn->exec("CREATE TABLE IF NOT EXISTS utilisateurs (nom VARCHAR(50))");
 
 $stmt = $conn->query("SELECT (nom) FROM utilisateurs");
 while ($row = $stmt->fetch()) {

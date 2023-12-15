@@ -1,9 +1,15 @@
 <h1>Bonjour !</p>
 
+<p>Infos ultra secretes :</p>
+<p><?php echo getenv("DB_HOST") ?></p>
+<p><?php echo getenv("DB_NAME") ?></p>
+<p><?php echo getenv("DB_USER") ?></p>
+<p><?php echo getenv("DB_PASS") ?></p>
+
 <?php
 
 try {
-    $conn = new PDO("mysql:host=" . getenv("DB_HOST") . ";dbname=terrdb", getenv("DB_USER"), getenv("DB_PASS"));
+    $conn = new PDO("mysql:host=" . getenv("DB_HOST") . ";dbname=" . getenv("DB_NAME"), getenv("DB_USER"), getenv("DB_PASS"));
     var_dump($conn);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }

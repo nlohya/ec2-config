@@ -1,3 +1,4 @@
+<h1>Bonjour !</p>
 <?php
 
 try {
@@ -9,12 +10,16 @@ catch (PDOException $e) {
     die(print_r($e));
 }
 
+var_dump($conn);
+
+$conn->prepare("CREATE TABLE IF NOT EXISTS utilisateurs (nom VARCHAR(50))")->execute();
+
+
 if (isset($_GET["name"])) {
     $sql = "INSERT INTO utilisateurs (nom) VALUES (?)";
     $conn->prepare($sql)->execute([$_GET["name"]]);
 }
 
-$conn->exec("CREATE TABLE IF NOT EXISTS utilisateurs (nom VARCHAR(50))");
 
 $stmt = $conn->query("SELECT (nom) FROM utilisateurs");
 while ($row = $stmt->fetch()) {

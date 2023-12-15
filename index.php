@@ -1,10 +1,10 @@
 <h1>Bonjour !</p>
 
 <p>Infos ultra secretes :</p>
-<p><?php echo getenv("DB_HOST") ?></p>
-<p><?php echo getenv("DB_NAME") ?></p>
-<p><?php echo getenv("DB_USER") ?></p>
-<p><?php echo getenv("DB_PASS") ?></p>
+<p>__DB_HOST__</p>
+<p>__DB_NAME__</p>
+<p>__DB_USER__</p>
+<p>__DB_PASS__</p>
 
 <?php
 
